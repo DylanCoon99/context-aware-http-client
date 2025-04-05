@@ -11,7 +11,7 @@ import (
 
 func GetHandler(w http.ResponseWriter, r *http.Request) {
 
-	log.Print("Hey I got the request!")
+	log.Printf("Hey I got the request! Here is the method: %v", r.Method)
 }
 
 

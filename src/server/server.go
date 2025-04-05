@@ -10,6 +10,10 @@ import (
 
 var SERVER *http.Server
 
+// want the server to be aware of the context of the request
+// - whether or not the client is connected or not
+// - 
+
 
 func CreateServer(port string) {
 
@@ -20,7 +24,7 @@ func CreateServer(port string) {
 	serverMux := http.NewServeMux()
 
 	// Put handle funcs here
-	serverMux.HandleFunc("GET /api/test", handlers.Get2Handler)
+	serverMux.HandleFunc("GET /api/test", handlers.GetHandler)
 
 	SERVER = &http.Server{
 		Addr: ":" + port,
