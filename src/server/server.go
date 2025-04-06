@@ -12,11 +12,10 @@ var SERVER *http.Server
 
 // want the server to be aware of the context of the request
 // - whether or not the client is connected or not
-// - 
+// - API rate limiting
 
 
 func CreateServer(port string) {
-
 
 	// here we are going to instantiate a server 
 
