@@ -10,6 +10,10 @@ import (
 )
 
 
+// note: done channels are a channel used to notify another goroutine that the functions work is done
+// 
+
+
 func GetHandler(w http.ResponseWriter, r *http.Request) {
 
 
@@ -20,7 +24,7 @@ func GetHandler(w http.ResponseWriter, r *http.Request) {
 
 	for i := 0; i < 10; i ++ {
 		select {
-		case <-ctx.Done():
+		case <-ctx.Done(): // if done is closed --> context has ended  ; so if this channel receives it indicates the context is done
 			log.Printf("Client ctx ended. Error: %v", ctx.Err())
 			return
 		default:
